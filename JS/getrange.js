@@ -14,9 +14,38 @@
  *   getRange(-5, -10, false) // returns [-6, -7, -8, -9]
  */
 
-const getRange = (a, b) =>{
-    
+const getRange = (a, b, inclusive = true) =>{
+   let range = [];
+   if(a<b){
+   if(inclusive === true){
+    while(a<b+1){
+        range.push(a);
+        a++;
+    }
+    } else{
+        while(a<b){
+            range.push(a);
+            a++
+        }
+    }
+    } else{
+        if(inclusive === true){
+            while(a>=b){
+                range.push(a);
+                a--;
+            }
+            } else{
+                while(a>b){
+                    range.push(a);
+                    a--;
+                }
+            }
 
-}
+    }
+    return range;
+   }
+   
 
-console.log(getRange(5,10));
+
+
+console.log(getRange(-5, -10, false));
